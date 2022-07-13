@@ -1,0 +1,20 @@
+[package]
+name = "rustgpu-app"
+version = "0.1.0"
+edition = "2018"
+publish = false
+
+[features]
+default = ["use-compiled-tools"]
+use-installed-tools = ["spirv-builder/use-installed-tools"]
+use-compiled-tools = ["spirv-builder/use-compiled-tools"]
+
+[dependencies]
+vulkano = "0.29.0"
+fps_ticker = "1"
+bytemuck = "1.10.0"
+#nannou-raytracer-shared = { path = "../shared" }
+spirv-builder = { git = "https://github.com/EmbarkStudios/rust-gpu", default-features = false }
+
+[build-dependencies]
+spirv-builder = { git = "https://github.com/EmbarkStudios/rust-gpu" }

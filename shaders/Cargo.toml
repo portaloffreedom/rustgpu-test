@@ -1,0 +1,12 @@
+[package]
+name = "myshader"
+version = "0.1.0"
+edition = "2018"
+publish = false
+
+[lib]
+crate-type = ["dylib"]
+
+[dependencies]
+# rustgpu-test-shared = { path = "../shared" }
+spirv-std = { git = "https://github.com/EmbarkStudios/rust-gpu", features = ["glam"] }
