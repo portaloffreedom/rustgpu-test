@@ -37,7 +37,7 @@ fn main() {
 
     // image compute shader ------------------------------------------------------
     // crashes, so disabled
-    // fractal::fractal(device.clone(), queue.clone());
+    fractal::fractal(device.clone(), queue.clone());
 
     // render a triangle ---------------------------------------------------------
     simple_graphics::simple_graphics(device.clone(), queue.clone());

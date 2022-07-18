@@ -14,14 +14,15 @@ use spirv_std::glam::{uvec2, UVec2, UVec3};
 use spirv_std::glam::{vec2, vec4, Vec2, Vec4};
 use spirv_std::glam::Vec3Swizzles;
 
-type Image2d = Image!(2D, type=f32, sampled=false, depth=false);
+type Image2d = Image!(2D, format=rgba8, sampled=false);
 
 #[spirv(compute(threads(8,8)))]
 pub fn fractal(
     #[spirv(global_invocation_id)] id: UVec3,
-    #[spirv(descriptor_set = 0, binding = 0)] _image: &mut Image2d,
-    #[spirv(flat, descriptor_set = 0, binding = 1)] _dimensions: UVec2,
+    #[spirv(descriptor_set = 0, binding = 0)] image: &mut Image2d,
+    // #[spirv(flat, descriptor_set = 0, binding = 1)] dimensions: [u32;2],
 ) {
+    // let dimensions = uvec2(dimensions[0], dimensions[1]);
     let dimensions: UVec2 = uvec2(1024, 1024);//image.query_size();
     let norm_coordinates: Vec2 = (id.xy().as_vec2() + vec2(0.5, 0.5)) / dimensions.as_vec2();
     let c: Vec2 = (norm_coordinates - vec2(0.5, 0.5)) * 2.0 - vec2(1.0, 0.0);
@@ -31,18 +32,18 @@ pub fn fractal(
     while i<1.0 {
         z = vec2(
             z.x*z.x - z.y*z.y + c.x,
-            z.y*z.y + z.x*z.x + c.y,
+            z.y*z.x + z.x*z.y + c.y,
         );
 
         if z.length() > 4.0 {
             break;
         }
-        
+
         i+= 0.005;
     }
 
-    let _to_write: Vec4 = vec4(i, i, i, 1.0);
-    // unsafe {
-        // image.write(id.xy(), to_write);
-    // }
+    let to_write: Vec4 = vec4(i, i, i, 1.0);
+    unsafe {
+        image.write(id.xy(), to_write);
+    }
 }

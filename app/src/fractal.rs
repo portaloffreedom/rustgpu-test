@@ -66,8 +66,8 @@ pub fn fractal(device: Arc<Device>, queue: Arc<Queue>) {
     let set = PersistentDescriptorSet::new(
         layout.clone(),
         [
-            WriteDescriptorSet::image_view(0, image_view.clone()),
-            WriteDescriptorSet::buffer(1, image_size_vkbuffer.clone()), // 0 is the binding
+            WriteDescriptorSet::image_view(0, image_view.clone()), // 0 is the binding
+            // WriteDescriptorSet::buffer(1, image_size_vkbuffer.clone()),
         ],
     )
         .unwrap();
@@ -115,7 +115,7 @@ pub fn fractal(device: Arc<Device>, queue: Arc<Queue>) {
     let buffer_content = buf.read().unwrap();
     let image = ImageBuffer::<Rgba<u8>, _>::from_raw(1024, 1024, &buffer_content[..]).unwrap();
 
-    image.save("image.png").unwrap();
+    image.save("fractal.png").unwrap();
 
     println!("Image stuff succeded!");
 }
