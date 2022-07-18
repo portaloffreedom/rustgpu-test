@@ -11,8 +11,6 @@
 use spirv_std::macros::spirv;
 use spirv_std::glam::UVec3;
 
-pub mod simple;
-pub mod simple2;
 
 #[spirv(compute(threads(64)))]
 pub fn main_cs(

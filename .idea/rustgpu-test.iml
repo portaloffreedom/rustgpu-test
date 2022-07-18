@@ -5,6 +5,9 @@
       <sourceFolder url="file://$MODULE_DIR$/app/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/shaders/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/shared/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/shaders/fractal/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/shaders/simple_compute/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/shaders/simple_graphics/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

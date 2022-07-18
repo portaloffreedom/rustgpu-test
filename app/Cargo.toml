@@ -11,10 +11,13 @@ use-compiled-tools = ["spirv-builder/use-compiled-tools"]
 
 [dependencies]
 vulkano = "0.29.0"
+vulkano-shaders = "0.29"
 fps_ticker = "1"
 bytemuck = "1.10.0"
+image = "0.24.2"
 #nannou-raytracer-shared = { path = "../shared" }
 spirv-builder = { git = "https://github.com/EmbarkStudios/rust-gpu", default-features = false }
 
 [build-dependencies]
+cargo_toml = "0.11.5"
 spirv-builder = { git = "https://github.com/EmbarkStudios/rust-gpu" }

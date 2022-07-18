@@ -1,5 +1,9 @@
 [workspace]
-members = ["app", "shaders"]
+members = ["app",
+    "shaders/simple_compute",
+    "shaders/fractal",
+    "shaders/simple_graphics"
+]
 
 
 # [package]
