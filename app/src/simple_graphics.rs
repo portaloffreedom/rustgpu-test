@@ -136,8 +136,8 @@ pub fn simple_graphics(device: Arc<Device>, queue: Arc<Queue>) {
         // .vertex_shader(glsl_vs.entry_point("main").unwrap(), ())
         .input_assembly_state(InputAssemblyState::new())
         .viewport_state(ViewportState::viewport_fixed_scissor_irrelevant([viewport]))
-        // .fragment_shader(r_shader_fs.entry_point("main_fs").unwrap(), ())
-        .fragment_shader(glsl_fs.entry_point("main").unwrap(), ())
+        .fragment_shader(r_shader_fs.entry_point("main_fs").unwrap(), ())
+        // .fragment_shader(glsl_fs.entry_point("main").unwrap(), ())
         .render_pass(Subpass::from(render_pass.clone(), 0).unwrap())
         .build(device.clone())
         .unwrap();

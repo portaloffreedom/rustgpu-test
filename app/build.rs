@@ -1,4 +1,4 @@
-use spirv_builder::MetadataPrintout;
+use spirv_builder::{MetadataPrintout, SpirvMetadata};
 use spirv_builder::{SpirvBuilder, SpirvBuilderError};
 
 fn main() -> Result<(), SpirvBuilderError> {
@@ -20,6 +20,7 @@ fn main() -> Result<(), SpirvBuilderError> {
 
         let compile_result = SpirvBuilder::new(path_to_shader, target)
             .multimodule(true)
+            .spirv_metadata(SpirvMetadata::NameVariables)
             .print_metadata(MetadataPrintout::DependencyOnly)
             .build()?;
 
