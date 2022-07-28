@@ -12,6 +12,8 @@ use-compiled-tools = ["spirv-builder/use-compiled-tools"]
 [dependencies]
 vulkano = "0.29.0"
 vulkano-shaders = "0.29"
+vulkano-win = "0.29.0"
+winit = "0.26.1"
 fps_ticker = "1"
 bytemuck = "1.10.0"
 image = "0.24.2"
